@@ -40,6 +40,8 @@ if (!class_exists('MV_Testimonials')) {
 
         public function __construct()
         {
+            
+            $this->load_textdomain();
 
             // Define constants used througout the plugin
             $this->define_constants();
@@ -93,6 +95,16 @@ if (!class_exists('MV_Testimonials')) {
             }
             return $file;
         }
+
+        public function load_textdomain()
+        {
+            load_plugin_textdomain(
+                'mv-testimonials',
+                false,
+                dirname(plugin_basename(__FILE__)) . '/languages/'
+            );
+        }
+        
 
         /**
          * Activate the plugin
